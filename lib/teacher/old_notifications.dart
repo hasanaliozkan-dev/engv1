@@ -11,7 +11,7 @@ class OldNotifications extends StatefulWidget {
 }
 
 class _OldNotifications extends State<OldNotifications> {
-  Api _api = Api();
+  final Api _api = Api();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +20,7 @@ class _OldNotifications extends State<OldNotifications> {
         elevation: 0,
         actions: [
           IconButton(
-            icon: Icon(Icons.logout,color: Colors.black,),
+            icon: const Icon(Icons.logout,color: Colors.black,),
             onPressed: () async {
               await FirebaseAuth.instance.signOut();
               _api.logout(context);
@@ -32,7 +32,7 @@ class _OldNotifications extends State<OldNotifications> {
         child: Column(
           children: <Widget>[
 
-            Container(
+            SizedBox(
 
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
@@ -46,7 +46,7 @@ class _OldNotifications extends State<OldNotifications> {
                         height: MediaQuery.of(context).size.height,
                         width: MediaQuery.of(context).size.width,
 
-                        child: Center(
+                        child: const Center(
                           child:NotificationList(),
                         ),
                       ),

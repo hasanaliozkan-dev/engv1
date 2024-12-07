@@ -284,7 +284,7 @@ class _NewNotificationState extends State<NewNotification> {
                                     color: Colors.black,
                                     fontSize: 15.0,
                                   ),
-                                  fileName!.length < 19 ? fileName! : "${fileName!.substring(0,15)}..." ): Icon(Icons.attach_file),
+                                  fileName!.length < 19 ? fileName! : "${fileName!.substring(0,15)}..." ): const Icon(Icons.attach_file),
                             ),
 
                             Padding(
