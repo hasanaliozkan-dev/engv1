@@ -18,8 +18,8 @@ class _SignInPage extends State<SignInPage> {
   bool _isObscure3 = true;
   bool visible = false;
   final _formkey = GlobalKey<FormState>();
-  final TextEditingController emailController = new TextEditingController();
-  final TextEditingController passwordController = new TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   final _auth = FirebaseAuth.instance;
 
@@ -29,12 +29,12 @@ class _SignInPage extends State<SignInPage> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            Container(
+            SizedBox(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.70,
               child: Center(
                 child: Container(
-                  margin: EdgeInsets.all(12),
+                  margin: const EdgeInsets.all(12),
                   child: Form(
                     key: _formkey,
                     child: Column(
@@ -42,7 +42,7 @@ class _SignInPage extends State<SignInPage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         //Add your logo here
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         ClipRRect(
@@ -67,20 +67,20 @@ class _SignInPage extends State<SignInPage> {
                             contentPadding: const EdgeInsets.only(
                                 left: 14.0, bottom: 8.0, top: 8.0),
                             focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black),
-                              borderRadius: new BorderRadius.circular(10),
+                              borderSide: const BorderSide(color: Colors.black),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                             enabledBorder: OutlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.black),
-                              borderRadius: new BorderRadius.circular(10),
+                              borderSide: const BorderSide(color: Colors.black),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                           ),
                           validator: (value) {
-                            if (value!.length == 0) {
+                            if (value!.isEmpty) {
                               return "Email cannot be empty";
                             }
                             if (!RegExp(
-                                    "[A-Za-z0-9._%+-]+@(posta\.mu\.edu\.tr|mu\.edu\.tr)")
+                                    "[A-Za-z0-9._%+-]+@(posta.mu.edu.tr|mu.edu.tr)")
                                 .hasMatch(value)) {
                               return ("Please enter a valid email");
                             } else {
@@ -92,7 +92,7 @@ class _SignInPage extends State<SignInPage> {
                           },
                           keyboardType: TextInputType.emailAddress,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         TextFormField(
@@ -115,16 +115,16 @@ class _SignInPage extends State<SignInPage> {
                             contentPadding: const EdgeInsets.only(
                                 left: 14.0, bottom: 8.0, top: 15.0),
                             focusedBorder: UnderlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.black),
-                              borderRadius: new BorderRadius.circular(10),
+                              borderSide: const BorderSide(color: Colors.black),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                             enabledBorder: OutlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.black),
-                              borderRadius: new BorderRadius.circular(10),
+                              borderSide: const BorderSide(color: Colors.black),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                           ),
                           validator: (value) {
-                            RegExp regex = new RegExp(r'^.{6,}$');
+                            RegExp regex = RegExp(r'^.{6,}$');
                             if (value!.isEmpty) {
                               return "Password cannot be empty";
                             }
@@ -147,7 +147,7 @@ class _SignInPage extends State<SignInPage> {
                                 onPressed: () {
                                   print("Forgot Password");
                                 },
-                                child: Text(
+                                child: const Text(
                                   "Forgot Password?",
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 15),
@@ -158,9 +158,9 @@ class _SignInPage extends State<SignInPage> {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Padding(
-                                padding: EdgeInsets.only(right: 20, top: 10),
+                                padding: const EdgeInsets.only(right: 20, top: 10),
                                 child: MaterialButton(
-                                  shape: RoundedRectangleBorder(
+                                  shape: const RoundedRectangleBorder(
                                       borderRadius: BorderRadius.all(
                                           Radius.circular(10.0))),
                                   elevation: 5.0,
@@ -172,13 +172,13 @@ class _SignInPage extends State<SignInPage> {
                                     signIn(emailController.text,
                                         passwordController.text);
                                   },
+                                  color: Colors.white,
                                   child: Text(
                                     "Login",
                                     style: TextStyle(
                                       fontSize: 20,
                                     ),
                                   ),
-                                  color: Colors.white,
                                 ),
                               )
                               //give a toast message
@@ -190,7 +190,7 @@ class _SignInPage extends State<SignInPage> {
                             maintainState: true,
                             visible: visible,
                             child: Container(
-                                child: CircularProgressIndicator(
+                                child: const CircularProgressIndicator(
                               color: Colors.white,
                             ))),
                       ],
@@ -207,16 +207,16 @@ class _SignInPage extends State<SignInPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(
+                    SizedBox(
                       width: MediaQuery.of(context).size.width * 0.90,
-                      child: Divider(
+                      child: const Divider(
                         color: Colors.black,
                         thickness: 1,
                       ),
                     ),
                     Row(
                       children: [
-                        Padding(
+                        const Padding(
                           padding: EdgeInsets.only(left: 30),
                           child: Text(
                             "Don't have an account? ",
@@ -226,9 +226,9 @@ class _SignInPage extends State<SignInPage> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(),
+                          padding: const EdgeInsets.only(),
                           child: TextButton(
-                            child: Text(
+                            child: const Text(
                               'Create one.',
                               style: TextStyle(
                                 fontSize: 15,

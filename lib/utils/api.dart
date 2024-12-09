@@ -54,7 +54,7 @@ class Api {
 
     int intGrade = ds['grade'];
     var docId = ds.id;
-    var userIds;
+    QuerySnapshot<Map<String, dynamic>> userIds;
 
     if (intGrade == 5 && intDepartment == 7) {
       userIds = await FirebaseFirestore.instance
@@ -113,7 +113,7 @@ class Api {
           document == 'teacher' ? depint : int.parse(department);
 
       var documentId = Random().nextInt(1000000000);
-      var userIds;
+      QuerySnapshot<Map<String, dynamic>> userIds;
 
       if (intGrade == 5 && intDepartment == 7) {
         userIds = await FirebaseFirestore.instance
@@ -137,12 +137,12 @@ class Api {
             .where("department", isEqualTo: intDepartment)
             .get();
       }
-      print("user ids: " + userIds.docs.toString());
+      print("user ids: ${userIds.docs}");
 
       if (fileName != null) {
-        print("file name: " + fileName!);
+        print("file name: $fileName");
         String filName2Upload =
-            "${fileName!.split(".")[0]}-$documentId.${fileName!.split(".")[1]}";
+            "${fileName.split(".")[0]}-$documentId.${fileName.split(".")[1]}";
 
         Reference imageRef =
             FirebaseStorage.instance.ref().child(filName2Upload);
@@ -241,7 +241,7 @@ class Api {
           scrollable: true,
           title: Text(docs[index]['header'],
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
               )),
@@ -308,7 +308,7 @@ class Api {
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: Text("Close"))
+                child: const Text("Close"))
           ],
         ));
   }
@@ -319,7 +319,7 @@ class Api {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => SignInPage(),
+        builder: (context) => const SignInPage(),
       ),
     );
   }

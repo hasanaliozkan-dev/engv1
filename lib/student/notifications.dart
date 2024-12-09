@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:engv1/student_notifications/starred.dart';
 import 'package:engv1/student_notifications/old.dart';
 import 'package:engv1/student_notifications/new.dart';
-import 'package:engv1/student/notification_list.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 class NotificaitonsPage extends StatefulWidget  {
-  const NotificaitonsPage({Key? key}) : super(key: key);
+  const NotificaitonsPage({super.key});
 
   @override
   _NotificaitonsPageState createState() => _NotificaitonsPageState();
@@ -17,17 +14,17 @@ class _NotificaitonsPageState extends State<NotificaitonsPage> with TickerProvid
 
   @override
   Widget build(BuildContext context) {
-    TabController _tabController = TabController(length: 3, vsync: this);
+    TabController tabController = TabController(length: 3, vsync: this);
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
 
         bottom: TabBar(
-          controller: _tabController,
+          controller: tabController,
           labelColor: Colors.black,
           unselectedLabelColor: Colors.grey,
-          tabs: [
+          tabs: const [
             Tab(text: "New"),
             Tab(text: "Starred"),
             Tab(text: "Old"),
@@ -36,7 +33,7 @@ class _NotificaitonsPageState extends State<NotificaitonsPage> with TickerProvid
       ),
 
     body: TabBarView(
-        controller: _tabController,
+        controller: tabController,
         children: const [
           Center(
               child: NewNotificationPage()),

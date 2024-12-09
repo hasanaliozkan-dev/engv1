@@ -6,6 +6,8 @@ import 'sign_in.dart';
 // import 'model.dart';
 
 class SignUp extends StatefulWidget {
+  const SignUp({super.key});
+
   @override
   _SignUpState createState() => _SignUpState();
 }
@@ -19,12 +21,12 @@ class _SignUpState extends State<SignUp> {
   final _formkey = GlobalKey<FormState>();
   final _auth = FirebaseAuth.instance;
 
-  final TextEditingController passwordController = new TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmpassController =
-      new TextEditingController();
-  final TextEditingController name = new TextEditingController();
-  final TextEditingController emailController = new TextEditingController();
-  final TextEditingController mobile = new TextEditingController();
+      TextEditingController();
+  final TextEditingController name = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController mobile = TextEditingController();
   bool _isObscure = true;
   bool _isObscure2 = true;
   File? file;
@@ -40,7 +42,7 @@ class _SignUpState extends State<SignUp> {
         child: Column(
           children: <Widget>[
 
-            Container(
+            SizedBox(
 
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
@@ -68,7 +70,7 @@ class _SignUpState extends State<SignUp> {
                                  Navigator.push(
                                    context,
                                    MaterialPageRoute(
-                                       builder: (context) => SignInPage()),
+                                       builder: (context) => const SignInPage()),
                                  );
                                },
                              ),
@@ -101,19 +103,19 @@ class _SignUpState extends State<SignUp> {
                             contentPadding: const EdgeInsets.only(
                                 left: 14.0, bottom: 8.0, top: 8.0),
                             focusedBorder: UnderlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.black),
-                              borderRadius: new BorderRadius.circular(10),
+                              borderSide: const BorderSide(color: Colors.black),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                             enabledBorder: OutlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.black),
-                              borderRadius: new BorderRadius.circular(10),
+                              borderSide: BorderSide(color: Colors.black),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                           ),
                           validator: (value) {
-                            if (value!.length == 0) {
+                            if (value!.isEmpty) {
                               return "Email cannot be empty";
                             }
-                            if (!RegExp("[A-Za-z0-9._%+-]+@(posta\.mu\.edu\.tr|mu\.edu\.tr)")
+                            if (!RegExp("[A-Za-z0-9._%+-]+@(posta.mu.edu.tr|mu.edu.tr)")
                                 .hasMatch(value)) {
                               return ("Please enter a valid email");
                             } else {
@@ -147,16 +149,16 @@ class _SignUpState extends State<SignUp> {
                             contentPadding: const EdgeInsets.only(
                                 left: 14.0, bottom: 8.0, top: 15.0),
                             focusedBorder: UnderlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.black),
-                              borderRadius: new BorderRadius.circular(10),
+                              borderSide: const BorderSide(color: Colors.black),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                             enabledBorder: OutlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.black),
-                              borderRadius: new BorderRadius.circular(10),
+                              borderSide: const BorderSide(color: Colors.black),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                           ),
                           validator: (value) {
-                            RegExp regex = new RegExp(r'^.{6,}$');
+                            RegExp regex = RegExp(r'^.{6,}$');
                             if (value!.isEmpty) {
                               return "Password cannot be empty";
                             }
@@ -191,12 +193,12 @@ class _SignUpState extends State<SignUp> {
                             contentPadding: const EdgeInsets.only(
                                 left: 14.0, bottom: 8.0, top: 15.0),
                             focusedBorder: UnderlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.black),
-                              borderRadius: new BorderRadius.circular(10),
+                              borderSide: const BorderSide(color: Colors.black),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                             enabledBorder: OutlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.black),
-                              borderRadius: new BorderRadius.circular(10),
+                              borderSide: const BorderSide(color: Colors.black),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                           ),
                           validator: (value) {
@@ -215,7 +217,7 @@ class _SignUpState extends State<SignUp> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                                 Container(
+                                 SizedBox(
                                    height: 50,
                                     width: MediaQuery.of(context).size.width*0.6,
                                      child: DropdownButtonFormField(
@@ -227,12 +229,12 @@ class _SignUpState extends State<SignUp> {
                                        contentPadding: const EdgeInsets.only(
                                            left: 8.0, bottom: 8.0, top: 8.0),
                                        focusedBorder: UnderlineInputBorder(
-                                         borderSide: new BorderSide(color: Colors.black),
-                                         borderRadius: new BorderRadius.circular(10),
+                                         borderSide: const BorderSide(color: Colors.black),
+                                         borderRadius: BorderRadius.circular(10),
                                        ),
                                        enabledBorder: OutlineInputBorder(
-                                         borderSide: new BorderSide(color: Colors.black),
-                                         borderRadius: new BorderRadius.circular(10),
+                                         borderSide: const BorderSide(color: Colors.black),
+                                         borderRadius: BorderRadius.circular(10),
                                        ),
                                      ),
                          hint: const Text("Department"),
@@ -267,8 +269,8 @@ class _SignUpState extends State<SignUp> {
                                     borderRadius: BorderRadius.circular(5),
                                   ),
                                   enabledBorder: OutlineInputBorder(
-                                    borderSide: new BorderSide(color: Colors.black),
-                                    borderRadius: new BorderRadius.circular(5),
+                                    borderSide: const BorderSide(color: Colors.black),
+                                    borderRadius: BorderRadius.circular(5),
                                   ),
                                 ),
                                 hint: const Text("Grade"),
@@ -321,13 +323,13 @@ class _SignUpState extends State<SignUp> {
                                 signUp(emailController.text,
                                     passwordController.text, role,department,grade);
                               },
+                              color: Colors.white,
                               child: const Text(
                                 "Sign Up",
                                 style: TextStyle(
                                   fontSize: 20,
                                 ),
                               ),
-                              color: Colors.white,
                             ),
                             ),
                           ],
@@ -368,6 +370,6 @@ class _SignUpState extends State<SignUp> {
       ref.doc(user!.uid).set({'email': emailController.text, 'role': role});
     }
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => SignInPage()));
+        context, MaterialPageRoute(builder: (context) => const SignInPage()));
   }
 }
