@@ -58,7 +58,7 @@ class _NotificationList extends State<NotificationList> {
                             icon: Icon(Icons.delete_forever)),
                       ]),
                       onTap: () {
-                        //Open a pop up to show the message
+                        //Open a pop up to show the message.
                         showDialog(
                             context: context,
                             builder: (BuildContext context) {
