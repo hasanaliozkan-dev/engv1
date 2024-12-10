@@ -20,7 +20,7 @@ class _Admin extends State<Admin> {
       NewNotification(),
       OldNotifications(),
     ];
-    void _onItemTapped(int index) {
+    void onItemTapped(int index) {
       setState(() {
         selectedIndex = index;
       });
@@ -44,18 +44,18 @@ class _Admin extends State<Admin> {
 
         ],
         currentIndex: selectedIndex,
-        onTap: _onItemTapped,
+        onTap: onItemTapped,
       ),
     );
   }
 
   Future<void> logout(BuildContext context) async {
-    CircularProgressIndicator();
+    const CircularProgressIndicator();
     await FirebaseAuth.instance.signOut();
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => SignInPage(),
+        builder: (context) => const SignInPage(),
       ),
     );
   }

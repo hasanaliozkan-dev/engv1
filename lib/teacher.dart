@@ -19,9 +19,9 @@ class _TeacherState extends State<Teacher> {
   Widget build(BuildContext context) {
      List<Widget> widgetOptions = <Widget>[
       NewNotification(dep: widget.dep),
-      OldNotifications(),
+      const OldNotifications(),
     ];
-    void _onItemTapped(int index) {
+    void onItemTapped(int index) {
       setState(() {
         selectedIndex = index;
       });
@@ -45,7 +45,7 @@ class _TeacherState extends State<Teacher> {
 
         ],
         currentIndex: selectedIndex,
-        onTap: _onItemTapped,
+        onTap: onItemTapped,
       ),
     );
   }

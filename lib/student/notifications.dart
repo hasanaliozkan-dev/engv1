@@ -17,17 +17,17 @@ class _NotificaitonsPageState extends State<NotificaitonsPage> with TickerProvid
 
   @override
   Widget build(BuildContext context) {
-    TabController _tabController = TabController(length: 3, vsync: this);
+    TabController tabController = TabController(length: 3, vsync: this);
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
 
         bottom: TabBar(
-          controller: _tabController,
+          controller: tabController,
           labelColor: Colors.black,
           unselectedLabelColor: Colors.grey,
-          tabs: [
+          tabs: const [
             Tab(text: "New"),
             Tab(text: "Starred"),
             Tab(text: "Old"),
@@ -36,7 +36,7 @@ class _NotificaitonsPageState extends State<NotificaitonsPage> with TickerProvid
       ),
 
     body: TabBarView(
-        controller: _tabController,
+        controller: tabController,
         children: const [
           Center(
               child: NewNotificationPage()),

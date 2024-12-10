@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -10,7 +12,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Homepage",
         ),
       ),
@@ -18,7 +20,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               "Please press the subscribe button for more videos",
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -26,13 +28,13 @@ class _HomePageState extends State<HomePage> {
                 fontSize: 20,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             MaterialButton(
               color: Colors.red,
               onPressed: () {},
-              child: Text(
+              child: const Text(
                 'Subscribe',
                 style: TextStyle(
                   color: Colors.white,

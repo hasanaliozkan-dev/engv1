@@ -75,13 +75,13 @@ class _NewNotificationState extends State<NewNotification> {
         child: Column(
           children: <Widget>[
 
-            Container(
+            SizedBox(
 
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               child: SingleChildScrollView(
                 child: Container(
-                  margin: EdgeInsets.all(12),
+                  margin: const EdgeInsets.all(12),
                   child: Form(
                     key: _formkey,
                     child: Column(
@@ -136,12 +136,12 @@ class _NewNotificationState extends State<NewNotification> {
                             contentPadding: const EdgeInsets.only(
                                 left: 14.0, bottom: 8.0, top: 8.0),
                             focusedBorder: UnderlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.black),
-                              borderRadius: new BorderRadius.circular(10),
+                              borderSide: const BorderSide(color: Colors.black),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                             enabledBorder: OutlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.black),
-                              borderRadius: new BorderRadius.circular(10),
+                              borderSide: const BorderSide(color: Colors.black),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                           ),
                           validator: (value) {
@@ -169,12 +169,12 @@ class _NewNotificationState extends State<NewNotification> {
                             contentPadding: const EdgeInsets.only(
                                 left: 14.0, bottom: 8.0, top: 8.0),
                             focusedBorder: UnderlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.black),
-                              borderRadius: new BorderRadius.circular(10),
+                              borderSide: const BorderSide(color: Colors.black),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                             enabledBorder: OutlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.black),
-                              borderRadius: new BorderRadius.circular(10),
+                              borderSide: const BorderSide(color: Colors.black),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                           ),
                           minLines: 10,
@@ -201,7 +201,7 @@ class _NewNotificationState extends State<NewNotification> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
 
-                              Container(
+                              SizedBox(
                                 width: MediaQuery.sizeOf(context).width*0.4
                                 ,
                                 child: DropdownButtonFormField(
@@ -214,15 +214,15 @@ class _NewNotificationState extends State<NewNotification> {
                                       contentPadding: const EdgeInsets.only(
                                           left: 8.0, bottom: 8.0, top: 15.0),
                                       focusedBorder: UnderlineInputBorder(
-                                        borderSide: new BorderSide(color: Colors.black),
-                                        borderRadius: new BorderRadius.circular(5),
+                                        borderSide: const BorderSide(color: Colors.black),
+                                        borderRadius: BorderRadius.circular(5),
                                       ),
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: new BorderSide(color: Colors.black),
-                                        borderRadius: new BorderRadius.circular(5),
+                                        borderSide: const BorderSide(color: Colors.black),
+                                        borderRadius: BorderRadius.circular(5),
                                       ),
                                     ),
-                                    hint: Text("Grade"),
+                                    hint: const Text("Grade"),
                                     items: const [
                                       DropdownMenuItem(value: "5",child: Text("Select All"),
                                       ),
@@ -249,7 +249,7 @@ class _NewNotificationState extends State<NewNotification> {
                             //Select image button
                             Container(
                               width: MediaQuery.sizeOf(context).width*0.45,
-                              margin: EdgeInsets.only(left: 20),
+                              margin: const EdgeInsets.only(left: 20),
                               child: MaterialButton(
                                 elevation: 5.0,
                                 shape: const RoundedRectangleBorder(
@@ -267,14 +267,14 @@ class _NewNotificationState extends State<NewNotification> {
                                       color: Colors.black,
                                       fontSize: 15.0,
                                     ),
-                                    fileName!.length < 19 ? fileName! : "${fileName!.substring(0,15)}..." ): Icon(Icons.attach_file),
+                                    fileName!.length < 19 ? fileName! : "${fileName!.substring(0,15)}..." ): const Icon(Icons.attach_file),
                               ),
                             )
 
                           ],
                         ),
 
-                        SizedBox(
+                        const SizedBox(
                           height: 40,
                         ),
 
@@ -284,13 +284,13 @@ class _NewNotificationState extends State<NewNotification> {
 
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            SizedBox(
+                            const SizedBox(
                               width: 140,
                             ),
                             Padding(
-                              padding: EdgeInsets.only(right: 20),
+                              padding: const EdgeInsets.only(right: 20),
                               child:   MaterialButton(
-                                shape: RoundedRectangleBorder(
+                                shape: const RoundedRectangleBorder(
                                     borderRadius:
                                     BorderRadius.all(Radius.circular(5.0))),
                                 elevation: 5.0,
@@ -325,13 +325,13 @@ class _NewNotificationState extends State<NewNotification> {
 
 
                                 },
+                                color: Colors.white,
                                 child: Text(
                                   "Send",
                                   style: TextStyle(
                                     fontSize: 20,
                                   ),
                                 ),
-                                color: Colors.white,
                               ),
                             ),
                           ],

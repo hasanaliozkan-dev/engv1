@@ -58,7 +58,7 @@ class _NotificationList extends State<NotificationList> {
         return ListView.builder(
           //sort by date
 
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
             itemCount: docs.length,
             itemBuilder: (context, index) {
               return (docs[index][widget.filter1] == widget.value1 &&

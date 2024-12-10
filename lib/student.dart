@@ -25,7 +25,7 @@ class _StudentState extends State<Student> {
       NotificaitonsPage(),
       ProfilePage(),
     ];
-    void _onItemTapped(int index) {
+    void onItemTapped(int index) {
       setState(() {
         selectedIndex = index;
       });
@@ -54,7 +54,7 @@ class _StudentState extends State<Student> {
     ),
     ],
       currentIndex: selectedIndex,
-      onTap: _onItemTapped,
+      onTap: onItemTapped,
     ),
     );
   }
