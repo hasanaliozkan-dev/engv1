@@ -11,13 +11,12 @@ class NotificationList extends StatefulWidget {
   final bool value2;
 
   const NotificationList(
-      {Key? key,
+      {super.key,
       required this.source,
       required this.filter1,
       required this.value1,
       required this.filter2,
-      required this.value2})
-      : super(key: key);
+      required this.value2});
 
   @override
   _NotificationList createState() => _NotificationList();
@@ -58,7 +57,7 @@ class _NotificationList extends State<NotificationList> {
         return ListView.builder(
           //sort by date
 
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
             itemCount: docs.length,
             itemBuilder: (context, index) {
               return (docs[index][widget.filter1] == widget.value1 &&

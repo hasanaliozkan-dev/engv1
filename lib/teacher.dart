@@ -1,13 +1,11 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:engv1/teacher/new_notification.dart';
 import 'package:engv1/teacher/old_notifications.dart';
 
-import 'sign_in.dart';
 
 class Teacher extends StatefulWidget {
   final String dep;
-  const Teacher({Key? key, required this.dep}) : super(key: key);
+  const Teacher({super.key, required this.dep});
 
   @override
   State<Teacher> createState() => _TeacherState();
@@ -19,9 +17,9 @@ class _TeacherState extends State<Teacher> {
   Widget build(BuildContext context) {
      List<Widget> widgetOptions = <Widget>[
       NewNotification(dep: widget.dep),
-      OldNotifications(),
+      const OldNotifications(),
     ];
-    void _onItemTapped(int index) {
+    void onItemTapped(int index) {
       setState(() {
         selectedIndex = index;
       });
@@ -45,7 +43,7 @@ class _TeacherState extends State<Teacher> {
 
         ],
         currentIndex: selectedIndex,
-        onTap: _onItemTapped,
+        onTap: onItemTapped,
       ),
     );
   }

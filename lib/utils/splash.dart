@@ -3,7 +3,7 @@ import 'package:engv1/sign_in.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 
 class Splash extends StatefulWidget {
-  const Splash({Key? key}) : super(key: key);
+  const Splash({super.key});
 
   @override
   _Splash createState() => _Splash();
@@ -17,9 +17,9 @@ class _Splash extends State<Splash> {
     navigateToSignIn();
   }
   void navigateToSignIn() async {
-    await Future.delayed(Duration(milliseconds: 2000), () {});
+    await Future.delayed(const Duration(milliseconds: 2000), () {});
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => SignInPage()));
+        context, MaterialPageRoute(builder: (context) => const SignInPage()));
 
   }
   @override
@@ -33,7 +33,7 @@ class _Splash extends State<Splash> {
               height: 200,)
             ),
 
-      nextScreen: SignInPage(),
+      nextScreen: const SignInPage(),
       splashTransition: SplashTransition.scaleTransition,
 
     );

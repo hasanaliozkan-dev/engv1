@@ -5,7 +5,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 
 class FacultyPage extends StatefulWidget {
-  const FacultyPage({Key? key}) : super(key: key);
+  const FacultyPage({super.key});
 
 
 
